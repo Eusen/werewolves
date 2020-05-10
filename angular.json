@@ -2,5 +2,127 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {}
+  "projects": {
+    "@apps/game-client": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "@apps/game-client",
+      "sourceRoot": "@apps/game-client/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/@apps/game-client",
+            "index": "@apps/game-client/src/index.html",
+            "main": "@apps/game-client/src/main.ts",
+            "polyfills": "@apps/game-client/src/polyfills.ts",
+            "tsConfig": "@apps/game-client/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "@apps/game-client/src/favicon.ico",
+              "@apps/game-client/src/assets"
+            ],
+            "styles": [
+              "@apps/game-client/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "@apps/game-client/src/environments/environment.ts",
+                  "with": "@apps/game-client/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "@apps/game-client:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "@apps/game-client:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "@apps/game-client:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "@apps/game-client/src/test.ts",
+            "polyfills": "@apps/game-client/src/polyfills.ts",
+            "tsConfig": "@apps/game-client/tsconfig.spec.json",
+            "karmaConfig": "@apps/game-client/karma.conf.js",
+            "assets": [
+              "@apps/game-client/src/favicon.ico",
+              "@apps/game-client/src/assets"
+            ],
+            "styles": [
+              "@apps/game-client/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+                "@apps/game-client/tsconfig.app.json",
+                "@apps/game-client/tsconfig.spec.json",
+                "@apps/game-client/e2e/tsconfig.json"
+              ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+          "e2e": {
+            "builder": "@angular-devkit/build-angular:protractor",
+            "options": {
+              "protractorConfig": "@apps/game-client/e2e/protractor.conf.js",
+              "devServerTarget": "@apps/game-client:serve"
+            },
+            "configurations": {
+              "production": {
+                "devServerTarget": "@apps/game-client:serve:production"
+              }
+            }
+          }
+      }
+    }},
+  "defaultProject": "@apps/game-client"
 }
