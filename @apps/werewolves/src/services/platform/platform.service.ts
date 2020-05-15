@@ -50,13 +50,13 @@ export class PlatformAgent {
     this.window.addEventListener('resize', resize);
 
     // 注入字体样式
-    const fontLinks = ['/assets/fonts/fonts.css'];
+    const fontLinks = ['/werewolves/assets/fonts/fonts.css'];
 
     if (this.window.navigator.onLine) {
       fontLinks.push('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
       fontLinks.push('https://fonts.googleapis.com/icon?family=Material+Icons');
     } else {
-      fontLinks.push('/assets/google-fonts/google-fonts.css');
+      fontLinks.push('/werewolves/assets/google-fonts/google-fonts.css');
     }
 
     fontLinks.forEach(fontLink => {
