@@ -1,34 +1,35 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "defaultProject": "@apps/werewolves",
   "newProjectRoot": "",
   "projects": {
-    "@apps/game-client": {
+    "@apps/werewolves": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "@apps/game-client",
-      "sourceRoot": "@apps/game-client/src",
+      "root": "@apps/werewolves",
+      "sourceRoot": "@apps/werewolves/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/@apps/game-client",
-            "index": "@apps/game-client/src/index.html",
-            "main": "@apps/game-client/src/main.ts",
-            "polyfills": "@apps/game-client/src/polyfills.ts",
-            "tsConfig": "@apps/game-client/tsconfig.app.json",
+            "outputPath": "dist/@apps/werewolves",
+            "index": "@apps/werewolves/src/index.html",
+            "main": "@apps/werewolves/src/main.ts",
+            "polyfills": "@apps/werewolves/src/polyfills.ts",
+            "tsConfig": "@apps/werewolves/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "@apps/game-client/src/favicon.ico",
-              "@apps/game-client/src/assets"
+              "@apps/werewolves/src/favicon.ico",
+              "@apps/werewolves/src/assets"
             ],
             "styles": [
-              "@apps/game-client/src/styles.scss"
+              "@apps/werewolves/src/styles.scss"
             ],
             "scripts": []
           },
@@ -36,8 +37,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "@apps/game-client/src/environments/environment.ts",
-                  "with": "@apps/game-client/src/environments/environment.prod.ts"
+                  "replace": "@apps/werewolves/src/environments/environment.ts",
+                  "with": "@apps/werewolves/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -66,33 +67,33 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "@apps/game-client:build"
+            "browserTarget": "@apps/werewolves:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "@apps/game-client:build:production"
+              "browserTarget": "@apps/werewolves:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "@apps/game-client:build"
+            "browserTarget": "@apps/werewolves:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "@apps/game-client/src/test.ts",
-            "polyfills": "@apps/game-client/src/polyfills.ts",
-            "tsConfig": "@apps/game-client/tsconfig.spec.json",
-            "karmaConfig": "@apps/game-client/karma.conf.js",
+            "main": "@apps/werewolves/src/test.ts",
+            "polyfills": "@apps/werewolves/src/polyfills.ts",
+            "tsConfig": "@apps/werewolves/tsconfig.spec.json",
+            "karmaConfig": "@apps/werewolves/karma.conf.js",
             "assets": [
-              "@apps/game-client/src/favicon.ico",
-              "@apps/game-client/src/assets"
+              "@apps/werewolves/src/favicon.ico",
+              "@apps/werewolves/src/assets"
             ],
             "styles": [
-              "@apps/game-client/src/styles.scss"
+              "@apps/werewolves/src/styles.scss"
             ],
             "scripts": []
           }
@@ -101,9 +102,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-                "@apps/game-client/tsconfig.app.json",
-                "@apps/game-client/tsconfig.spec.json",
-                "@apps/game-client/e2e/tsconfig.json"
+                "@apps/werewolves/tsconfig.app.json",
+                "@apps/werewolves/tsconfig.spec.json",
+                "@apps/werewolves/e2e/tsconfig.json"
               ],
             "exclude": [
               "**/node_modules/**"
@@ -113,16 +114,216 @@
           "e2e": {
             "builder": "@angular-devkit/build-angular:protractor",
             "options": {
-              "protractorConfig": "@apps/game-client/e2e/protractor.conf.js",
-              "devServerTarget": "@apps/game-client:serve"
+              "protractorConfig": "@apps/werewolves/e2e/protractor.conf.js",
+              "devServerTarget": "@apps/werewolves:serve"
             },
             "configurations": {
               "production": {
-                "devServerTarget": "@apps/game-client:serve:production"
+                "devServerTarget": "@apps/werewolves:serve:production"
               }
             }
           }
       }
-    }},
-  "defaultProject": "@apps/game-client"
+    },
+    "@servers/main-server": {
+      "projectType": "library",
+      "root": "@servers/main-server",
+      "sourceRoot": "@servers/main-server/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "@servers/main-server/tsconfig.lib.json",
+            "project": "@servers/main-server/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "@servers/main-server/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "@servers/main-server/src/test.ts",
+            "tsConfig": "@servers/main-server/tsconfig.spec.json",
+            "karmaConfig": "@servers/main-server/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "@servers/main-server/tsconfig.lib.json",
+              "@servers/main-server/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@libs/ts-koa": {
+      "projectType": "library",
+      "root": "@libs/ts-koa",
+      "sourceRoot": "@libs/ts-koa/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "@libs/ts-koa/tsconfig.lib.json",
+            "project": "@libs/ts-koa/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "@libs/ts-koa/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "@libs/ts-koa/src/test.ts",
+            "tsConfig": "@libs/ts-koa/tsconfig.spec.json",
+            "karmaConfig": "@libs/ts-koa/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "@libs/ts-koa/tsconfig.lib.json",
+              "@libs/ts-koa/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@libs/ts-orm": {
+      "projectType": "library",
+      "root": "@libs/ts-orm",
+      "sourceRoot": "@libs/ts-orm/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "@libs/ts-orm/tsconfig.lib.json",
+            "project": "@libs/ts-orm/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "@libs/ts-orm/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "@libs/ts-orm/src/test.ts",
+            "tsConfig": "@libs/ts-orm/tsconfig.spec.json",
+            "karmaConfig": "@libs/ts-orm/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "@libs/ts-orm/tsconfig.lib.json",
+              "@libs/ts-orm/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@libs/ts-ws": {
+      "projectType": "library",
+      "root": "@libs/ts-ws",
+      "sourceRoot": "@libs/ts-ws/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "@libs/ts-ws/tsconfig.lib.json",
+            "project": "@libs/ts-ws/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "@libs/ts-ws/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "@libs/ts-ws/src/test.ts",
+            "tsConfig": "@libs/ts-ws/tsconfig.spec.json",
+            "karmaConfig": "@libs/ts-ws/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "@libs/ts-ws/tsconfig.lib.json",
+              "@libs/ts-ws/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@libs/game-lib": {
+      "projectType": "library",
+      "root": "@libs/game-lib",
+      "sourceRoot": "@libs/game-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "@libs/game-lib/tsconfig.lib.json",
+            "project": "@libs/game-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "@libs/game-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "@libs/game-lib/src/test.ts",
+            "tsConfig": "@libs/game-lib/tsconfig.spec.json",
+            "karmaConfig": "@libs/game-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "@libs/game-lib/tsconfig.lib.json",
+              "@libs/game-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  }
 }

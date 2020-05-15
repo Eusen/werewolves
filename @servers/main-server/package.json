@@ -1,0 +1,12 @@
+{
+  "name": "@servers/main-server",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "tslib": "latest",
+    "koa": "latest",
+    "socket.io": "latest",
+    "nodemon": "latest",
+    "@types/socket.io": "latest",
+    "@types/socket.io-client": "latest"
+  }
+}

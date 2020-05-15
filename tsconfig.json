@@ -14,7 +14,21 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@libs/ts-koa": [
+        "@libs/ts-koa/src/index.ts"
+      ],
+      "@libs/ts-orm": [
+        "@libs/ts-orm/src/index.ts"
+      ],
+      "@libs/ts-ws": [
+        "@libs/ts-ws/src/index.ts"
+      ],
+      "@libs/game-lib": [
+        "@libs/game-lib/src/index.ts"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
