@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{N1dq:function(n,t,e){"use strict";e.r(t),e.d(t,"PlayerSettingsPageModule",(function(){return i}));var r=e("2kYt"),o=e("EM62");let i=(()=>{class n{}return n.\u0275mod=o.Kb({type:n}),n.\u0275inj=o.Jb({factory:function(t){return new(t||n)},imports:[[r.b]]}),n})()}}]);

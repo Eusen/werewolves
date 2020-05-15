@@ -1,11 +1,12 @@
 import {Options, Sequelize, SyncOptions} from 'sequelize';
+import {buildSequelizeDomain} from "./domian";
 
 export class Tsorm {
   private static tsorms: { [name: string]: Tsorm } = {};
   private ctx: Sequelize;
 
 
-  static create(domain: any, options: Options & {sync?: SyncOptions}) {
+  static create(domain: any, options: Options & { sync?: SyncOptions }) {
     if (!this.tsorms[name]) {
       this.tsorms[name] = new Tsorm(options);
     } else {
@@ -24,6 +25,7 @@ export class Tsorm {
   }
 
   private setDomin(domian: any) {
+    buildSequelizeDomain(domian, this.ctx);
     return this;
   }
 

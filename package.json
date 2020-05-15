@@ -3,24 +3,24 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
+    "werewolves:start": "ng serve @apps/werewolves",
+    "werewolves:build": "ng build @apps/werewolves --prod",
     "server:start": "nodemon ./@servers/main-server/dist/esm2015/main.js",
     "server:build": "ng build @servers/main-server --prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "latest",
+    "@angular/cdk": "^9.2.3",
     "@angular/common": "latest",
     "@angular/compiler": "latest",
     "@angular/core": "latest",
     "@angular/forms": "latest",
+    "@angular/material": "^9.2.3",
     "@angular/platform-browser": "latest",
     "@angular/platform-browser-dynamic": "latest",
     "@angular/router": "latest",
+    "bootstrap": "^4.5.0",
     "koa": "latest",
     "nodemon": "latest",
     "rxjs": "latest",
@@ -53,6 +53,6 @@
     "protractor": "latest",
     "ts-node": "latest",
     "tslint": "latest",
-    "typescript": "latest"
+    "typescript": "~3.8.3"
   }
 }

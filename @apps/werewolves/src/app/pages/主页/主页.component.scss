@@ -1,0 +1,152 @@
+app-root {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  background-color: #000;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .master-panel {
+    background-image: url("/assets/img/master_panel_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .player-info-panel {
+    background-color: rgba(0, 0, 0, 0.3);
+
+    .player-avatar-wrapper {
+      max-height: 110px;
+      margin-left: 8px;
+
+      .player-avatar {
+        position: absolute;
+        width: 65px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+      }
+
+      .player-avatar-frame {
+        position: relative;
+        width: 110px;
+      }
+
+      .player-achievement {
+        position: absolute;
+        width: 120px;
+        bottom: 0;
+        left: -4px;
+      }
+    }
+
+    .player-basic {
+      margin-left: -10px;
+
+      .player-name {
+        position: relative;
+        margin-top: 30px;
+        padding-left: 21px;
+
+        font-family: Fiddums, HYJK, serif;
+        color: #fff;
+        font-size: 24px;
+        opacity: 0.9;
+
+        .player-gender {
+          position: absolute;
+          left: 0;
+          top: 1px;
+          font-weight: bold;
+
+          color: #FF6DAB;
+        }
+      }
+
+      .player-assets {
+        margin-top: 16px;
+        margin-left: 22px;
+
+        .player-assets-icon {
+          width: 30px;
+        }
+
+        .player-assets-value {
+          font-size: 16px;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .ops-panel {
+    .portrait-wrapper {
+      position: absolute;
+      width: 300%;
+      bottom: -6px;
+      left: 50%;
+      transform: translate(-45%, 0);
+
+      .portrait {
+        width: 100%;
+        animation: portrait-breath 2.2s alternate infinite;
+      }
+    }
+
+    .game-enter {
+      position: relative;
+      margin: 16px;
+      height: 80px;
+      border-radius: 8px;
+      background-image: linear-gradient(45deg, #AC2619, #620E0C);
+      font-family: Fiddums, HYJK, serif;
+      color: #FFFEEF;
+      overflow: hidden;
+      padding: 16px;
+      text-shadow: 1px 1px 5px rgba(255, 209, 62, 1);
+
+      .game-title {
+        position: relative;
+        z-index: 2;
+        font-size: 26px;
+        margin-top: 2px;
+      }
+
+      .game-desc {
+        position: relative;
+        z-index: 2;
+        font-size: 12px;
+        margin-top: 8px;
+      }
+
+      .game-cover {
+        position: absolute;
+        z-index: 1;
+        width: 50%;
+        right: 0;
+        bottom: 0;
+        transform: translate(15%, 38%);
+      }
+    }
+  }
+}
+
+@keyframes portrait-breath {
+  0% {
+    transform: scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: scaleX(1.02) scaleY(1);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+}

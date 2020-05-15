@@ -1,0 +1,20 @@
+{
+  "name": "@servers/main-server",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "tslib": "latest",
+    "koa": "latest",
+    "socket.io": "latest",
+    "nodemon": "latest",
+    "@types/socket.io": "latest",
+    "@types/socket.io-client": "latest"
+  },
+  "main": "bundles/servers-main-server.umd.js",
+  "module": "fesm2015/servers-main-server.js",
+  "es2015": "fesm2015/servers-main-server.js",
+  "esm2015": "esm2015/servers-main-server.js",
+  "fesm2015": "fesm2015/servers-main-server.js",
+  "typings": "servers-main-server.d.ts",
+  "metadata": "servers-main-server.metadata.json",
+  "sideEffects": false
+}

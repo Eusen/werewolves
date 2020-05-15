@@ -18,7 +18,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/@apps/werewolves",
+            "outputPath": "docs",
             "index": "@apps/werewolves/src/index.html",
             "main": "@apps/werewolves/src/main.ts",
             "polyfills": "@apps/werewolves/src/polyfills.ts",
@@ -29,6 +29,7 @@
               "@apps/werewolves/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "@apps/werewolves/src/styles.scss"
             ],
             "scripts": []
@@ -93,6 +94,7 @@
               "@apps/werewolves/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "@apps/werewolves/src/styles.scss"
             ],
             "scripts": []
@@ -102,27 +104,27 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-                "@apps/werewolves/tsconfig.app.json",
-                "@apps/werewolves/tsconfig.spec.json",
-                "@apps/werewolves/e2e/tsconfig.json"
-              ],
+              "@apps/werewolves/tsconfig.app.json",
+              "@apps/werewolves/tsconfig.spec.json",
+              "@apps/werewolves/e2e/tsconfig.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
           }
         },
-          "e2e": {
-            "builder": "@angular-devkit/build-angular:protractor",
-            "options": {
-              "protractorConfig": "@apps/werewolves/e2e/protractor.conf.js",
-              "devServerTarget": "@apps/werewolves:serve"
-            },
-            "configurations": {
-              "production": {
-                "devServerTarget": "@apps/werewolves:serve:production"
-              }
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "@apps/werewolves/e2e/protractor.conf.js",
+            "devServerTarget": "@apps/werewolves:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "@apps/werewolves:serve:production"
             }
           }
+        }
       }
     },
     "@servers/main-server": {
