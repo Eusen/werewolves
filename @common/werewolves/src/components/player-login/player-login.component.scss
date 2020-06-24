@@ -1,0 +1,53 @@
+wolf-player-login {
+  display: block;
+
+  form {
+    text-align: center;
+    margin-top: 16%;
+
+    .logo {
+      width: 120px;
+      transform: translate(3px, -6px);
+
+      @keyframes logo-rotate {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+
+      animation: logo-rotate 90s forwards linear infinite;
+    }
+
+    mat-form-field, button {
+      width: 70%;
+    }
+
+    .plate {
+      transition: all 0.15s;
+
+      mat-form-field {
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &.rising {
+        transform: translateY(0);
+        opacity: 1;
+        height: auto;
+        padding-top: 104px;
+      }
+
+      &.sinking {
+        transform: translateY(80%);
+        opacity: 0;
+        pointer-events: none;
+        padding-top: 0;
+      }
+    }
+  }
+}

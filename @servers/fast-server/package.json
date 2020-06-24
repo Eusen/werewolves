@@ -1,0 +1,19 @@
+{
+  "name": "@servers/fast-server",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node ./scripts/start.js"
+  },
+  "peerDependencies": {
+    "@angular/common": "latest",
+    "@angular/core": "latest",
+    "koa": "latest",
+    "socket.io": "latest",
+    "sequelize": "latest",
+    "sqlite3": "latest",
+    "nodemon": "latest",
+    "@types/socket.io": "latest",
+    "@types/socket.io-client": "latest",
+    "tslib": "latest"
+  }
+}

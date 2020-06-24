@@ -1,0 +1,7 @@
+<div class="avatar"
+  [style.background-image]="user ? core.R.server.img(user.avatar, true) : null">
+  <span class="empty" *ngIf="!user">空</span>
+</div>
+<img class="avatar-frame" [src]="core.R.img.avatar_frame_default.origin" alt="">
+<img *ngIf="user" class="user-seg" [src]="core.R.img.ui_seg_1.origin" alt="">
+<div *ngIf="status" class="status" [style.background]="status"></div>

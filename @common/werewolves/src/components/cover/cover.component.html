@@ -1,0 +1,24 @@
+<div class="cover-container"
+     [class.disable-animation]="isDisableAnimation"
+     [ngClass]="coverDisplayClassCtrl">
+  <img [src]="coverImg" alt="cover">
+  <div class="loading" *ngIf="$.loading">
+    <mat-progress-bar
+      [mode]="$.loading.mode"
+      [color]="$.loading.color"
+      [value]="$.loading.value"
+      [bufferValue]="$.loading.bufferValue">
+    </mat-progress-bar>
+    <div class="loading-text">{{$.loading.text}}</div>
+  </div>
+
+  <div class="template-content">
+    <ng-template *ngIf="core.cover.templateRef" [ngTemplateOutlet]="core.cover.templateRef"></ng-template>
+  </div>
+</div>
+
+<div class="cover-back-container"
+     [class.disable-animation]="isDisableAnimation"
+     [ngClass]="coverDisplayClassCtrl">
+  <img *ngIf="coverBackImg" [src]="coverBackImg" alt="cover-back">
+</div>

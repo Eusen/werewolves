@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[18],{HVs3:function(n,e,o){"use strict";o.r(e),o.d(e,"PrepareRoomPageModule",(function(){return s}));var r=o("2kYt"),t=o("EM62");let s=(()=>{class n{}return n.\u0275mod=t.Lb({type:n}),n.\u0275inj=t.Kb({factory:function(e){return new(e||n)},imports:[[r.b]]}),n})()}}]);

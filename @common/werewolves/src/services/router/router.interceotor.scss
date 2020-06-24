@@ -1,0 +1,18 @@
+.dialog-page {
+  max-width: none !important;
+
+  .mat-dialog-container {
+    box-shadow: none;
+    background: transparent;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
+.mat-snack-bar-handset {
+  justify-content: center;
+
+  snack-bar-container {
+    width: auto !important;
+  }
+}

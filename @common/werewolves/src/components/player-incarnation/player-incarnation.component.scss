@@ -1,0 +1,20 @@
+wolf-player-incarnation {
+  display: block;
+
+  img {
+    width: 100%;
+    animation: portrait-breath 2s infinite;
+  }
+
+  @keyframes portrait-breath {
+    0% {
+      transform: scaleX(1) scaleY(1);
+    }
+    50% {
+      transform: scaleX(1.05) scaleY(1);
+    }
+    100% {
+      transform: scaleX(1) scaleY(1);
+    }
+  }
+}

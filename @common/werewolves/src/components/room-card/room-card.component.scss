@@ -1,0 +1,65 @@
+wolf-room-card {
+  display: block;
+  margin-bottom: 16px;
+
+  .card-wrapper {
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    .backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0, 0.3);
+    }
+
+    .incarnation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      wolf-player-incarnation {
+        transform: translate(30%, -25px);
+      }
+    }
+
+    .info-content {
+      .room-name {
+        font-size: 20px;
+        padding: 16px 16px 8px 0;
+      }
+
+      .room-no {
+        padding-bottom: 4px;
+        font-size: 80%;
+      }
+
+      .room-info {
+        line-height: 1;
+
+        wolf-player-gender {
+          margin-right: 3px;
+        }
+      }
+
+      .status {
+        width: 200px;
+        padding-left: 16px;
+        font-size: 80%;
+      }
+
+      .actions {
+        transform: translate(-8px, -8px);
+      }
+    }
+
+  }
+
+}

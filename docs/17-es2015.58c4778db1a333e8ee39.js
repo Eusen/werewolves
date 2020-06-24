@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[17],{"81hU":function(t,n,e){"use strict";e.r(n),e.d(n,"UltimateNightSettingsPageModule",(function(){return r}));var i=e("2kYt"),o=e("EM62");let r=(()=>{class t{}return t.\u0275mod=o.Lb({type:t}),t.\u0275inj=o.Kb({factory:function(n){return new(n||t)},imports:[[i.b]]}),t})()}}]);

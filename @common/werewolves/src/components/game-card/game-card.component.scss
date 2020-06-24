@@ -1,0 +1,38 @@
+wolf-game-card {
+  display: block;
+
+  .menu-wrapper {
+    position: relative;
+    margin: 16px;
+    height: 74px;
+    border-radius: 8px;
+    background-image: linear-gradient(45deg, #AC2619, #620E0C);
+    color: #FFFEEF;
+    overflow: hidden;
+    padding: 14px;
+    text-shadow: 1px 1px 5px rgba(255, 209, 62, 1);
+
+    .menu-title {
+      position: relative;
+      z-index: 2;
+      font-size: 26px;
+      margin-top: 2px;
+    }
+
+    .menu-desc {
+      position: relative;
+      z-index: 2;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .menu-cover {
+      position: absolute;
+      z-index: 1;
+      width: 50%;
+      right: 0;
+      bottom: 0;
+      transform: translate(15%, 45%);
+    }
+  }
+}

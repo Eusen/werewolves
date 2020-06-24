@@ -1,0 +1,71 @@
+wolf-dialog-shell {
+  display: block;
+  position: relative;
+
+  .backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .header-wrapper {
+    text-align: center;
+    position: relative;
+    padding: 16px 16px 8px;
+
+    .close {
+      position: relative;
+      margin-left: -12px;
+      transform: translate(2px, -8px);
+
+      img {
+        width: 64px;
+      }
+
+      button {
+        position: absolute;
+        top: 28px;
+        right: 4px;
+
+        mat-icon {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .title-wrapper {
+      position: relative;
+
+      .title-bg {
+        height: 64px;
+        width: 100%;
+      }
+
+      .title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -63%);
+        font-size: 24px;
+        color: #000;
+        width: 80%;
+      }
+    }
+
+    .header {
+      margin-top: 8px;
+    }
+  }
+
+  .content {
+    padding: 0 16px 16px;
+    overflow: hidden scroll;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

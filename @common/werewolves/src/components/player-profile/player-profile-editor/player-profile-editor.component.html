@@ -1,0 +1,50 @@
+<form [formGroup]="form" class="init" *ngIf="mode === 'init'">
+  <div class="avatar">
+    <button mat-icon-button
+            (click)="selectAvatar()"
+            [style.background-image]="form.value.avatar ? core.R.server.uri(form.value.avatar, {isUrl: true}) : ''">
+    </button>
+    <img class="avatar_frame" [src]="core.R.img.avatar_frame_default.origin" alt="">
+  </div>
+
+  <div class="gender row no-gutters">
+    <div class="col"></div>
+    <div class="col-auto">
+      <button mat-icon-button class="man"
+              [class.selected]="form.value.gender === 1"
+              (click)="setGender(1)">
+        <mat-icon>♂</mat-icon>
+      </button>
+    </div>
+    <div class="col-auto" style="width: 48px"></div>
+    <div class="col-auto">
+      <button mat-icon-button class="woman"
+              [class.selected]="form.value.gender ===  0"
+              (click)="setGender(0)">
+        <mat-icon>♀</mat-icon>
+      </button>
+    </div>
+    <div class="col"></div>
+  </div>
+
+  <div class="nickname">
+    <mat-form-field appearance="outline">
+      <mat-label>昵称</mat-label>
+      <input matInput formControlName="nickname" placeholder="请输入昵称" required>
+      <mat-error>昵称最长不能超过8个字</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <button
+      mat-raised-button
+      style="width: 205px"
+      color="accent" (click)="submit()">
+      进入游戏
+    </button>
+  </div>
+</form>
+
+<form class="edit" *ngIf="mode === 'edit'">
+
+</form>

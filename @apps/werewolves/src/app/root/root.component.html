@@ -1,0 +1,15 @@
+<div class="root-container"
+     [style.width]="core.utils.width"
+     [style.height]="core.utils.height"
+     [style.background-image]="core.R.img.master_panel_bg.url">
+  <router-outlet></router-outlet>
+</div>
+
+<wolf-cover
+  [style.width]="core.utils.width"
+  [style.height]="core.utils.height"
+  [closeVoice]="core.R.audio.close"
+  [openVoice]="core.R.audio.open"
+  [coverImg]="core.R.img.ui_cover.origin"
+  [coverBackImg]="core.R.img.ui_cover_back.origin">
+</wolf-cover>

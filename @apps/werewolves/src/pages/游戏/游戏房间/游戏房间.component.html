@@ -1,0 +1,104 @@
+<!--设置房间信息-->
+<!--  房间名-->
+<!--  游戏设置-->
+<!--  设置房间密码-->
+
+
+<!--聊天-->
+
+<!--邀请拉人-->
+
+<!--踢人-->
+
+<wolf-dialog-shell [disableHeader]="true">
+  <mat-form-field class="room-name w-100" appearance="legacy">
+    <mat-label>房间名</mat-label>
+    <input matInput matNativeControl [disabled]="!me?.isMaster" [(ngModel)]="config.name" placeholder="">
+    <mat-hint>房间号：{{config.number}}</mat-hint>
+
+    <button mat-icon-button matSuffix [mat-menu-trigger-for]="menu" (click)="core.stopEvent($event)">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="core.copyInviteUrl()">
+        <mat-icon>gamepad</mat-icon>
+        <span>邀请好友</span>
+      </button>
+
+      <ng-container *ngIf="me?.isMaster">
+        <button mat-menu-item (click)="toGameConfig()">
+          <mat-icon>rule</mat-icon>
+          <span>游戏配置</span>
+        </button>
+
+        <button mat-menu-item (click)="toRoomConfig()">
+          <mat-icon>settings</mat-icon>
+          <span>房间设置</span>
+        </button>
+      </ng-container>
+
+      <button mat-menu-item (click)="dismiss()">
+        <mat-icon>close</mat-icon>
+        <span>退出房间</span>
+      </button>
+    </mat-menu>
+  </mat-form-field>
+
+  <div class="player-seats mt-4">
+    <div>玩家席</div>
+    <div class="row no-gutters">
+      <div class="col-3" *ngFor="let _ of config.playerCountArray; let i = index;">
+        <wolf-player-avatar
+          [status]="players[i]?.isReady ? '#8EE253' : '#E2E2E2'"
+          [user]="players[i]">
+        </wolf-player-avatar>
+        <div class="menu-trigger" [mat-menu-trigger-for]="playerAction"></div>
+      </div>
+    </div>
+    <div class="action mt-3">
+      <button class="w-100" mat-flat-button
+              (click)="ready()"
+              [color]="me?.isMaster ? 'accent' : (me?.isReady ? 'primary' : 'accent')">
+        {{me?.isMaster ? '开始游戏' : (me?.isReady ? '取消准备' : '准备')}}
+      </button>
+    </div>
+  </div>
+
+  <div class="audience-seats mt-4">
+    <div>候补席</div>
+    <div *ngIf="!audiences || audiences.length === 0"
+         class="p-2" style="opacity: 0.6">
+      暂无选手
+    </div>
+    <div class="p-2">
+      <wolf-player-avatar
+        *ngFor="let user of audiences"
+        [user]="user"
+        [size]="32">
+      </wolf-player-avatar>
+    </div>
+  </div>
+</wolf-dialog-shell>
+
+<mat-menu #playerAction="matMenu" xPosition="after" yPosition="below">
+  <button mat-menu-item>
+    <mat-icon>bubble_chart</mat-icon>
+    <span>查看详情</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon>sync_alt</mat-icon>
+    <span>换座</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon>low_priority</mat-icon>
+    <span>转让房主</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon>reply</mat-icon>
+    <span>请出房间</span>
+  </button>
+</mat-menu>

@@ -7,6 +7,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "resolveJsonModule": true,
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
@@ -16,17 +17,8 @@
       "dom"
     ],
     "paths": {
-      "@libs/ts-koa": [
-        "@libs/ts-koa/src/index.ts"
-      ],
-      "@libs/ts-orm": [
-        "@libs/ts-orm/src/index.ts"
-      ],
-      "@libs/ts-ws": [
-        "@libs/ts-ws/src/index.ts"
-      ],
-      "@libs/game-lib": [
-        "@libs/game-lib/src/index.ts"
+      "@common/werewolves": [
+        "@common/werewolves/src/index.ts"
       ]
     }
   },

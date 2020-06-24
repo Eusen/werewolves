@@ -1,0 +1,37 @@
+<div class="card-wrapper" [style.background-image]="core.R.img.game_bg_zy_y.url">
+  <div class="backdrop"></div>
+
+  <div class="incarnation">
+    <wolf-player-incarnation [gender]="room.creater?.gender"></wolf-player-incarnation>
+  </div>
+
+  <div class="info-content">
+    <div class="row no-gutters">
+      <div class="col-auto">
+        <wolf-player-avatar [user]="room.creater"></wolf-player-avatar>
+      </div>
+      <div class="col">
+        <div class="room-name">{{room.name}}</div>
+        <div class="room-no">房间号: {{room.no}}</div>
+        <div class="room-info">
+          <wolf-player-gender></wolf-player-gender>
+          <span class="player-name">{{room.creater?.nickname}}</span>
+          <span class="player-noble-flag"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row no-gutters align-items-center">
+      <div class="status col-auto">
+        {{status}}
+      </div>
+
+      <div class="col"></div>
+
+      <div class="actions">
+        <button mat-flat-button color="accent">加入</button>
+      </div>
+    </div>
+  </div>
+
+</div>

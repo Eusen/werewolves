@@ -1,0 +1,25 @@
+<ng-template #actionsTemplateRef>
+  <div class="actions row no-gutters">
+    <div class="col-auto">
+      <button
+        mat-flat-button
+        color="accent"
+        (click)="login()">
+        登&nbsp;录
+      </button>
+    </div>
+    <div class="col"></div>
+    <div class="col-auto">
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="logon()">
+        注&nbsp;册
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<wolf-dialog-shell [disableHeader]="true">
+  <wolf-player-login (success)="loginSuccess()"></wolf-player-login>
+</wolf-dialog-shell>

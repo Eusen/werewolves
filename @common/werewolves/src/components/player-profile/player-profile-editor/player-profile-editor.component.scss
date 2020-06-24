@@ -1,0 +1,66 @@
+wolf-player-profile-editor {
+  display: block;
+
+  .init {
+    text-align: center;
+
+    .avatar {
+      padding: 100px 0;
+      position: relative;
+
+      .mat-icon-button {
+        background-color: #3E180B;
+        background-size: cover;
+        background-position: center;
+        transform: scale(2.5);
+      }
+
+      .avatar_frame {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -51%);
+        width: 190px;
+        pointer-events: none;
+      }
+    }
+
+    .gender {
+      transform: translateY(-36px);
+
+      .mat-icon-button {
+        .mat-icon {
+          transform: translateY(-3px);
+        }
+      }
+
+      .man {
+        color: #1677D2;
+
+        &.selected {
+          background-color: #1677D2;
+
+          .mat-icon {
+            color: #fff;
+          }
+        }
+      }
+
+      .woman {
+        color: #e91e63;
+
+        &.selected {
+          background-color: #e91e63;
+
+          .mat-icon {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .nickname {
+      transform: translateY(-10px);
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<wolf-dialog-shell [dialog]="this" [menus]="menus">
+  <div class="header row no-gutters align-items-center">
+    <mat-form-field class="col" appearance="outline">
+      <mat-label>搜索房间名/房间号/玩家名</mat-label>
+      <input matInput placeholder="">
+      <button matSuffix mat-icon-button class="ml-1">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="room-list" [style.height.px]="core.utils.plt.height() - 174">
+    <wolf-room-card
+      *ngFor="let room of roomList"
+      [room]="room">
+    </wolf-room-card>
+
+    <div class="text-center" *ngIf="hasNextPage">
+      <button mat-stroked-button
+              (click)="refreshList(currentPageIndex + 1)">
+        加载下一页
+      </button>
+    </div>
+  </div>
+</wolf-dialog-shell>

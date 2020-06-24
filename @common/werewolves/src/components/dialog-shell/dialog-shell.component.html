@@ -1,0 +1,36 @@
+<img class="backdrop" [src]="core.R.img.ui_cover_back.origin" alt="">
+
+<div class="header-wrapper" #headerWrapper>
+  <div class="row no-gutters align-items-center" *ngIf="!disableHeader">
+    <div class="close col-auto"  (click)="dialog.dismiss()" *ngIf="!disableHeaderClose">
+      <img [src]="core.R.img.ui_btn_bg.origin" alt="">
+      <button mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <div class="title-wrapper col">
+      <img class="title-bg" [src]="core.R.img.ui_title.origin" alt="">
+      <div class="title">{{title || dialog.title}}</div>
+    </div>
+
+    <div class="actions col-auto" *ngIf="menus">
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let item of menus" (click)="item.handler && item.handler()">
+          <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+          <span>{{item.title}}</span>
+        </button>
+      </mat-menu>
+
+      <button mat-icon-button [mat-menu-trigger-for]="menu" class="ml-2">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <ng-content select=".header"></ng-content>
+</div>
+
+<div class="content" [style.height.px]="core.utils.plt.height() - headerWrapper.clientHeight">
+  <ng-content></ng-content>
+</div>

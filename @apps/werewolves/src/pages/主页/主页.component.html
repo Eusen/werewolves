@@ -1,0 +1,51 @@
+<div class="top-panel">
+  <div class="user-info row no-gutters">
+    <div class="avatar-wrapper col-auto" (click)="toPlayerProfile()">
+      <div class="avatar" [style.background-image]="core.R.server.img(core.user.get().avatar, true)"></div>
+      <img class="avatar-frame" [src]="core.R.img.avatar_frame_default.origin" alt="">
+      <img class="achieves" [src]="core.R.img.achieves_crjh.origin" alt="">
+    </div>
+    <div class="info-wrapper col">
+      <div class="info-top">
+        <div class="name-wrapper">
+          <span class="gender" [class.man]="core.user.get().gender">{{core.user.get().gender ? '♂' : '♀'}}</span>
+          <span class="nickname">{{core.user.get().nickname}}</span>
+          <button class="setting" mat-icon-button (click)="toSysSettings()">
+            <mat-icon>settings</mat-icon>
+          </button>
+        </div>
+        <div class="lv-wrapper">
+          <div class="lv">
+            <span style="font-size: 70%">lv</span>.{{core.user.get().level || 0}}
+          </div>
+          <div class="exp" style="font-size: 70%">0/100</div>
+          <mat-progress-bar [value]="0" mode="determinate" color="accent"></mat-progress-bar>
+        </div>
+      </div>
+      <div class="info-bottom row no-gutters">
+        <div class="jb col">
+          <img [src]="core.R.img.ui_jb.origin" alt="">
+          <span>{{core.user.get().gold_coin || '0'}}</span>
+        </div>
+        <div class="zs col">
+          <img [src]="core.R.img.ui_zs.origin" alt="">
+          <span>{{core.user.get().diamond || '0'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="menu-panel">
+  <wolf-game-card
+    (click)="toRoomList(0)"
+    title="一夜终极"
+    desc="烧脑分析，严谨推理"
+    [cover]="core.R.img.roles_lw.origin">
+  </wolf-game-card>
+</div>
+
+<wolf-player-incarnation
+  [portrait]="core.user.get().portrait"
+  [gender]="core.user.get().gender">
+</wolf-player-incarnation>

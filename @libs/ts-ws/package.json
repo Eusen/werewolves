@@ -1,7 +1,0 @@
-{
-  "name": "@libs/ts-ws",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "tslib": "latest"
-  }
-}
